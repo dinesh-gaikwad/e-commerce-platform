@@ -1,12 +1,39 @@
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
 const app = require("./app");
+const connectDB = require("./config/db");
+require("dotenv").config();
 
-dotenv.config();
+
+// ===============================
+// 🗄️ DATABASE CONNECTION
+// ===============================
 connectDB();
 
+
+// ===============================
+// 🚀 START SERVER
+// ===============================
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+const server = app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
+
+
+// ===============================
+// ❌ HANDLE UNHANDLED PROMISE ERRORS
+// ===============================
+process.on("unhandledRejection", (err) => {
+  console.error("❌ Unhandled Rejection:", err.message);
+  server.close(() => {
+    process.exit(1);
+  });
+});
+
+
+// ===============================
+// ❌ HANDLE UNCAUGHT EXCEPTIONS
+// ===============================
+process.on("uncaughtException", (err) => {
+  console.error("❌ Uncaught Exception:", err.message);
+  process.exit(1);
 });
