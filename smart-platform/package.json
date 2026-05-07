@@ -1,0 +1,26 @@
+{
+  "name": "smart-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full Stack Smart E-Commerce Platform",
+  "author": "Dinesh Gaikwad",
+  "license": "ISC",
+
+  "scripts": {
+
+    "install-all": "npm install --prefix backend && npm install --prefix frontend",
+
+    "server": "npm start --prefix backend",
+
+    "client": "npm start --prefix frontend",
+
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+
+    "build": "npm run build --prefix frontend"
+
+  },
+
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

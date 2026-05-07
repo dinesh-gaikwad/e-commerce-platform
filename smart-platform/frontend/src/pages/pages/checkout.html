@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+</head>
+<body>
+
+<h1>💳 Checkout</h1>
+
+<button onclick="placeOrder()">Place Order</button>
+
+<script>
+function placeOrder() {
+  fetch("http://localhost:5000/api/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token")
+    }
+  })
+  .then(res => res.json())
+  .then(() => alert("Order Placed!"));
+}
+</script>
+
+</body>
+</html>

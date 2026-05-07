@@ -1,27 +1,14 @@
-const router = require("express").Router();
-const auth = require("../middleware/authMiddleware");
-const admin = require("../middleware/adminMiddleware");
+const express = require("express");
+const app = express();
 
-const {
-  getDashboard,
-  getUsers,
-  getOrders,
-  getProducts,
-  addProduct,
-  updateProduct,
-  deleteProduct,
-  updateOrderStatus
-} = require("../controllers/adminController");
+app.use(express.json());
 
-router.get("/dashboard", auth, admin, getDashboard);
-router.get("/users", auth, admin, getUsers);
-router.get("/orders", auth, admin, getOrders);
-router.get("/products", auth, admin, getProducts);
+// Routes import
+app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/products", require("./routes/productRoutes"));
+app.use("/api/cart", require("./routes/cartRoutes"));
+app.use("/api/orders", require("./routes/orderRoutes"));
+app.use("/api/payment", require("./routes/paymentRoutes"));
+app.use("/api/admin", require("./routes/adminRoutes"));
 
-router.post("/product", auth, admin, addProduct);
-router.put("/product/:id", auth, admin, updateProduct);
-router.delete("/product/:id", auth, admin, deleteProduct);
-
-router.put("/order/:id", auth, admin, updateOrderStatus);
-
-module.exports = router;
+module.exports = app;

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>E-Commerce Home</title>
+</head>
+<body>
+
+<h1>🛍️ Smart E-Commerce Store</h1>
+
+<div id="products"></div>
+
+<script>
+fetch("http://localhost:5000/api/products")
+.then(res => res.json())
+.then(data => {
+  document.getElementById("products").innerHTML =
+    data.products.map(p => `
+      <div style="border:1px solid #ccc;padding:10px;margin:10px;">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+      </div>
+    `).join("");
+});
+</script>
+
+</body>
+</html>

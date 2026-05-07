@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Page</title>
+</head>
+<body>
+
+<h1>📦 Product Details</h1>
+
+<div id="product"></div>
+
+<script>
+const id = new URLSearchParams(window.location.search).get("id");
+
+fetch(`http://localhost:5000/api/products/${id}`)
+.then(res => res.json())
+.then(p => {
+  document.getElementById("product").innerHTML = `
+    <h2>${p.name}</h2>
+    <img src="${p.image}" width="200"/>
+    <p>${p.description}</p>
+    <h3>₹${p.price}</h3>
+  `;
+});
+</script>
+
+</body>
+</html>
