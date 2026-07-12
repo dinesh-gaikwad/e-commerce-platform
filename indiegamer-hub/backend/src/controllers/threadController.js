@@ -7,18 +7,12 @@ export async function createThread(req, res) {
 }
 
 export async function listThreadsByGame(req, res) {
-  const threads = await Thread.find({ game: req.params.gameId })
-    .populate('user', 'name avatar role')
-    .sort({ isPinned: -1, createdAt: -1 });
+  const threads = await Thread.find({ game: req.params.gameId }).populate('user', 'name avatar role').sort({ isPinned: -1, createdAt: -1 });
   return apiResponse.success(res, threads, 'Game threads');
 }
 
 export async function updateThread(req, res) {
-  const thread = await Thread.findOneAndUpdate(
-    { _id: req.params.id, user: req.user.id },
-    req.body,
-    { new: true }
-  );
+  const thread = await Thread.findOneAndUpdate({ _id: req.params.id, user: req.user.id }, req.body, { new: true });
   if (!thread) return apiResponse.error(res, 'Thread not found', 404);
   return apiResponse.success(res, thread, 'Thread updated');
 }

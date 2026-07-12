@@ -1,0 +1,16 @@
+{
+  "name": "indiegamer-hub",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "postCreateCommand": "npm --prefix backend install && npm --prefix frontend install",
+  "forwardPorts": [5173, 5000],
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+        "deployment/deployment-notes.md",
+        "docs/system-design.md",
+        "backend/src/server.js"
+      ]
+    }
+  }
+}

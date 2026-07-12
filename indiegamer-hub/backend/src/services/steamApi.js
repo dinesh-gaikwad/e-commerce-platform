@@ -1,16 +1,10 @@
 import axios from 'axios';
 import { env } from '../config/env.js';
 
-const client = axios.create({
-  baseURL: 'https://store.steampowered.com/api',
-  timeout: 15000
-});
+const client = axios.create({ baseURL: 'https://store.steampowered.com/api', timeout: 15000 });
 
 export async function fetchSteamAppDetails(appId) {
-  const { data } = await client.get('/appdetails', {
-    params: { appids: appId, cc: env.STEAM_COUNTRY, l: env.STEAM_LANG }
-  });
-
+  const { data } = await client.get('/appdetails', { params: { appids: appId, cc: env.STEAM_COUNTRY, l: env.STEAM_LANG } });
   const payload = data?.[String(appId)];
   if (!payload?.success) throw new Error('Steam appdetails fetch failed');
 

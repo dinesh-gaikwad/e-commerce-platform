@@ -1,14 +1,6 @@
 import { Router } from 'express';
 import { protect, authorize } from '../middleware/auth.js';
-import {
-  createGame,
-  createGameFromSteam,
-  deleteGame,
-  getGameBySlug,
-  listGames,
-  toggleFeatured,
-  updateGame
-} from '../controllers/gameController.js';
+import { createGame, createGameFromSteam, deleteGame, getGameBySlug, listGames, toggleFeatured, updateGame } from '../controllers/gameController.js';
 
 const router = Router();
 router.get('/', listGames);

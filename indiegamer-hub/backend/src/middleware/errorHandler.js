@@ -5,11 +5,6 @@ export function notFound(req, res) {
 }
 
 export function errorHandler(err, req, res, next) {
-  const statusCode = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
-  return apiResponse.error(
-    res,
-    err.message || 'Internal Server Error',
-    statusCode,
-    process.env.NODE_ENV === 'production' ? null : err.stack
-  );
+  const code = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
+  return apiResponse.error(res, err.message || 'Internal Server Error', code, process.env.NODE_ENV === 'production' ? null : err.stack);
 }

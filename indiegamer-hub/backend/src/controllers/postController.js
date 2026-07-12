@@ -7,9 +7,7 @@ export async function createPost(req, res) {
 }
 
 export async function listPostsByThread(req, res) {
-  const posts = await Post.find({ thread: req.params.threadId })
-    .populate('user', 'name avatar role')
-    .sort({ createdAt: 1 });
+  const posts = await Post.find({ thread: req.params.threadId }).populate('user', 'name avatar role').sort({ createdAt: 1 });
   return apiResponse.success(res, posts, 'Thread posts');
 }
 

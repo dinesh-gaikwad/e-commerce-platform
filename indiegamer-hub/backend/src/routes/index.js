@@ -13,9 +13,5 @@ router.use('/reviews', reviewRoutes);
 router.use('/threads', threadRoutes);
 router.use('/posts', postRoutes);
 router.use('/admin', adminRoutes);
-
-router.get('/', (req, res) => {
-  res.json({ message: 'IndieGamer Hub API ready' });
-});
-
+router.get('/', (req, res) => res.json({ message: 'IndieGamer Hub API ready' }));
 export default router;

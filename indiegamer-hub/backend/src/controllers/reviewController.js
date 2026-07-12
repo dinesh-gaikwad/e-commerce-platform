@@ -9,18 +9,12 @@ export async function createReview(req, res) {
 }
 
 export async function listReviewsByGame(req, res) {
-  const reviews = await Review.find({ game: req.params.gameId })
-    .populate('user', 'name avatar role')
-    .sort({ createdAt: -1 });
+  const reviews = await Review.find({ game: req.params.gameId }).populate('user', 'name avatar role').sort({ createdAt: -1 });
   return apiResponse.success(res, reviews, 'Game reviews');
 }
 
 export async function updateReview(req, res) {
-  const review = await Review.findOneAndUpdate(
-    { _id: req.params.id, user: req.user.id },
-    req.body,
-    { new: true }
-  );
+  const review = await Review.findOneAndUpdate({ _id: req.params.id, user: req.user.id }, req.body, { new: true });
   if (!review) return apiResponse.error(res, 'Review not found', 404);
   await recalculateGameRating(review.game);
   return apiResponse.success(res, review, 'Review updated');
