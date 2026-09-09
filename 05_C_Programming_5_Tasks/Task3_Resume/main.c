@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){char name[80],role[80],skills[200];FILE*f;printf("Name: ");scanf(" %79[^\n]",name);printf("Role: ");scanf(" %79[^\n]",role);printf("Skills: ");scanf(" %199[^\n]",skills);f=fopen("resume.txt","w");if(!f)return 1;fprintf(f,"RESUME\n%s\n%s\nSkills: %s\nEducation: BCS\nProjects: Marksheet, Certificate, Library\n",name,role,skills);fclose(f);puts("resume.txt created");return 0;}

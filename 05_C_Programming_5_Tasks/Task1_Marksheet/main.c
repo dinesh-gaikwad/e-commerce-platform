@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){char name[80];int m[5],i,total=0;const char*s[]={"HTML","CSS","JavaScript","Python","MySQL"};printf("Name: ");scanf(" %79[^\n]",name);for(i=0;i<5;i++){printf("%s marks: ",s[i]);scanf("%d",&m[i]);if(m[i]<0||m[i]>100){printf("Invalid marks\n");return 1;}total+=m[i];}printf("\n%s - Total %d/500, Percentage %.2f%%\n",name,total,total/5.0);printf("Result: %s\n",total/5.0>=40?"PASS":"FAIL");return 0;}

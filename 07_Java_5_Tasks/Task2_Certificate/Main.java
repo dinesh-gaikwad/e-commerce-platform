@@ -1,0 +1,1 @@
+import java.io.*; import java.util.*; class Main{public static void main(String[]a)throws Exception{Scanner s=new Scanner(System.in);String n=s.nextLine(),c=s.nextLine(),id=s.nextLine();try(PrintWriter p=new PrintWriter("certificate.txt")){p.println("CERTIFICATE\n"+n+"\n"+c+"\n"+id);}System.out.println("Saved");}}

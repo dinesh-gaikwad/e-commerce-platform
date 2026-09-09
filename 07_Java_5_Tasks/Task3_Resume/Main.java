@@ -1,0 +1,1 @@
+import java.io.*; import java.util.*; class Main{public static void main(String[]a)throws Exception{Scanner s=new Scanner(System.in);String n=s.nextLine(),r=s.nextLine(),sk=s.nextLine();try(PrintWriter p=new PrintWriter("resume.txt")){p.println("RESUME\n"+n+"\n"+r+"\nSkills: "+sk);}System.out.println("Saved");}}

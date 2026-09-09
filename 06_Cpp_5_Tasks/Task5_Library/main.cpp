@@ -1,0 +1,3 @@
+#include <iostream>
+#include <vector>
+using namespace std; struct Book{int id;string title;bool available=true;}; int main(){vector<Book>b;int c;while(true){cout<<"\n1 Add 2 List 3 Toggle 4 Exit: ";cin>>c;if(c==1){Book x;cin>>x.id>>x.title;b.push_back(x);}else if(c==2){for(auto&x:b)cout<<x.id<<" "<<x.title<<" "<<(x.available?"Available":"Issued")<<"\n";}else if(c==3){int id;cin>>id;for(auto&x:b)if(x.id==id)x.available=!x.available;}else break;}}

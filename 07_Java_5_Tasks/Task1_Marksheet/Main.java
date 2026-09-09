@@ -1,0 +1,1 @@
+import java.util.*; class Main{public static void main(String[]a){Scanner s=new Scanner(System.in);int total=0;for(int i=0;i<5;i++){System.out.print("Mark: ");total+=s.nextInt();}System.out.println("Total="+total+" Percentage="+total/5.0);}}
