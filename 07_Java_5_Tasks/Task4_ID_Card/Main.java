@@ -1,1 +1,0 @@
-import java.io.*; import java.util.*; class Main{public static void main(String[]a)throws Exception{Scanner s=new Scanner(System.in);String n=s.nextLine(),roll=s.nextLine(),c=s.nextLine();try(PrintWriter p=new PrintWriter("idcard.txt")){p.printf("ID CARD%n%s%n%s%n%s%nValid Till: 05-2027%n",n,roll,c);}System.out.println("Saved");}}

@@ -1,2 +1,0 @@
-#include <stdio.h>
-int main(){char name[100],course[100],id[40];FILE*f;printf("Name: ");scanf(" %99[^\n]",name);printf("Course: ");scanf(" %99[^\n]",course);printf("Certificate ID: ");scanf(" %39s",id);f=fopen("certificate.txt","w");if(!f)return 1;fprintf(f,"CERTIFICATE OF COMPLETION\nName: %s\nCourse: %s\nID: %s\n",name,course,id);fclose(f);printf("Saved certificate.txt\n");return 0;}

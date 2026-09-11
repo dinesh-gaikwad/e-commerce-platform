@@ -1,2 +1,0 @@
-#include <stdio.h>
-int main(){char name[80],roll[30],course[50];FILE*f;printf("Name: ");scanf(" %79[^\n]",name);printf("Roll: ");scanf(" %29s",roll);printf("Course: ");scanf(" %49[^\n]",course);f=fopen("idcard.txt","w");if(!f)return 1;fprintf(f,"ID CARD\nCollege: New Arts College\nName: %s\nRoll: %s\nCourse: %s\nValid Till: 05-2027\n",name,roll,course);fclose(f);puts("idcard.txt created");return 0;}

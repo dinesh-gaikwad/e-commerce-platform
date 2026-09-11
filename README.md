@@ -1,10 +1,28 @@
-# Graduation Portfolio — 100X Ultra Edition
+# 100X Graduation OS — React + Flask + Render
 
-The original graduation portfolio tasks are preserved. A new `11_Ultra_100X_Portfolio` has been added with 80 navigable modules, a unified ultra UI, and deployment configurations.
+Industry-style major project portfolio with 30 long-form, scrollable pages and 360 data-rich records.
 
-Start here:
-- `11_Ultra_100X_Portfolio/index.html`
-- `11_Ultra_100X_Portfolio/README.md`
+## Stack
+- React + Vite
+- Flask REST API
+- SQLite contact storage
+- Gunicorn production server
+- Render deployment via `render.yaml`
 
-Original modules:
-01 HTML • 02 CSS • 03 JavaScript • 04 Python • 05 C • 06 C++ • 07 Java • 08 MySQL • 09 Flask • 10 Final FullStack
+## Run
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r backend/requirements.txt
+npm install --prefix frontend
+npm run build --prefix frontend
+python backend/app.py
+```
+
+Open `http://localhost:5000`.
+
+## API
+`GET /api/health`, `/api/pages`, `/api/projects`, `/api/skills`, `/api/stats`, `/api/page/<name>`, `POST /api/contact`.
+
+## Deploy
+Push to GitHub and create a Render Web Service. The included `render.yaml` contains the build and Gunicorn start commands.

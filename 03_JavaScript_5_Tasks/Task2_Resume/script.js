@@ -1,1 +1,0 @@
-function build(){const n=document.getElementById("name").value,r=document.getElementById("role").value,s=document.getElementById("skills").value;document.getElementById("resume").innerHTML=`<h1>${n}</h1><h2>${r}</h2><hr><h3>Skills</h3><p>${s}</p><h3>Education</h3><p>BCS – Computer Systems Technology</p><h3>Projects</h3><p>Marksheet, Certificate, Library Management.</p>`;}

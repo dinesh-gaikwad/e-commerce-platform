@@ -1,4 +1,0 @@
-#include <stdio.h>
-#include <string.h>
-struct Book{int id;char title[80],author[80];int available;};
-int main(){struct Book b[20];int n=0,choice,id,i;while(1){printf("\n1 Add 2 List 3 Issue/Return 4 Exit\nChoice: ");scanf("%d",&choice);if(choice==1){printf("ID Title Author: ");scanf("%d %79s %79s",&b[n].id,b[n].title,b[n].author);b[n].available=1;n++;}else if(choice==2){for(i=0;i<n;i++)printf("%d %s %s %s\n",b[i].id,b[i].title,b[i].author,b[i].available?"Available":"Issued");}else if(choice==3){printf("Book ID: ");scanf("%d",&id);for(i=0;i<n;i++)if(b[i].id==id){b[i].available=!b[i].available;printf("Updated\n");}}else break;}return 0;}

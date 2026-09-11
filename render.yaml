@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: 100x-graduation-os
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt && npm install --prefix frontend && npm run build --prefix frontend
+    startCommand: gunicorn backend.app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.6
